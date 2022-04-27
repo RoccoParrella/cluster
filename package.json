@@ -1,0 +1,26 @@
+{
+  "name": "clusters",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "forever:server1": "forever start --watch index.js 8081",
+    "forever:server2": "forever start --watch index.js 8082",
+    "forever:server3": "forever start --watch index.js 8083",
+    "forever:all": "npm run forever:server1 && npm run forever:server2 && npm run forever:server3",
+    "pm2:startworker": "pm2 start worker.config.js",
+    "pm2:startcluster": "pm2 start cluster.config.js",
+    "start:cluster": "nodemon cluster.js",
+    "nodemon": "nodemon cluster.js 8082"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.0",
+    "forever": "^4.0.3",
+    "moment": "^2.29.3",
+    "nodemon": "^2.0.15",
+    "pm2": "^5.2.0"
+  }
+}
